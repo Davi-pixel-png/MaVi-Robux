@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaVi Robux</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('robux.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            font-family: 'Fantasy', cursive;
+            -webkit-text-stroke: 1px black;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        #textoss {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            -webkit-text-stroke: 1px black;
+            color: white;
+            font-weight: bold;
+            display: block;
+            margin: 10px 0;
+        }
+
+        #botoes input, #botoes button {
+            border: 2px solid black;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px 0;
+            width: 80%;
+            max-width: 300px;
+            font-size: 16px;
+        }
+
+        #botoes button {
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #botoes button:hover {
+            background-color: rgba(0, 0, 0, 1);
+        }
+
+        #mensagem {
+            font-family: 'Fantasy', cursive;
+            -webkit-text-stroke: 1px black;
+            color: white;
+            font-size: 1.2em;
+            margin-top: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .payment-steps {
+            margin-top: 30px;
+            text-align: left;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+        }
+
+        .payment-steps h1 {
+            font-size: 1.2em;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .pix-key {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #2ecc71;
+            color: white;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .pix-key button {
+            background-color: #27ae60;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .pix-key button:hover {
+            background-color: #219653;
+        }
+
+        .note {
+            margin-top: 20px;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        .video-container {
+            margin-top: 30px;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .app-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .app-links a {
+            text-decoration: none;
+            color: white;
+            background-color: #3498db;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .app-links a:hover {
+            background-color: #2980b9;
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("tvOlTN32xB7IRabwq");
+        })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo à MaVi Robux, a loja de Robux mais barata do mundo!</h1>
+        
+        <div id="botoes">
+            <label id="textoss">Coloque a quantia de Robux desejada</label>
+            <input type="number" placeholder="Sua quantia de Robux" id="robuxbux" oninput="atualizarPreco()">
+            <label id="textoss">Preço: <span id="preco">0</span> reais</label>
+            <label id="textoss">Seu Username do Roblox:</label>
+            <input type="text" id="usernameInput" placeholder="Seu Username">
+            <label id="textoss">Seu Email:</label>
+            <input type="email" id="email" placeholder="Seu email">
+            <button onclick="cliquei()">Inserir</button>
+        </div>
+
+        <div id="mensagem"></div>
+
+        <div class="payment-steps">
+            <h1>Passo 1:</h1>
+            <p>No seu dispositivo, abra o aplicativo onde irá realizar o pagamento (Nubank, PicPay, entre outros).</p>
+            <h1>Passo 2:</h1>
+            <p>Vá na área PIX do aplicativo.</p>
+            <h1>Passo 3:</h1>
+            <p>Mande a quantidade em reais que custa os Robux que você comprou (caso mande a quantidade em reais incorreta, nós daremos a quantidade de robux de acordo com essa quantidade de reais).</p>
+            <div class="pix-key">
+                Chave PIX: <strong id="pixKey">51999202211</strong>
+                <button onclick="copiarChavePix()">Copiar Chave</button>
+            </div>
+            <div class="app-links">
+                <a href="https://picpay.me/" target="_blank">Abrir PicPay</a>
+                <a href="https://nubank.com.br/" target="_blank">Abrir Nubank</a>
+            </div>
+        </div>
+
+        <div class="video-container">
+            <h2>Como criar uma GamePass:</h2>
+            <iframe src="https://www.youtube.com/embed/ZIMAzgBcOuA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        function atualizarPreco() {
+            let quantidade = document.getElementById('robuxbux').value;
+            let preco = quantidade * 0.0279;
+            document.getElementById('preco').innerText = preco.toFixed(2);
+        }
+
+        function cliquei() {
+            let email = document.getElementById('email').value;
+            let robux = document.getElementById('robuxbux').value;
+            let username = document.getElementById('usernameInput').value;
+            let mensagem = document.getElementById('mensagem');
+
+            if (email === '' || robux === '' || username === '') {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+
+            let valorGamepass = Math.ceil(robux / 0.7);
+            mensagem.innerHTML = `
+                <strong>Atenção!</strong><br>
+                Para receber ${robux} Robux, crie uma GamePass no valor de <strong>${valorGamepass} Robux</strong>.<br>
+            `;
+
+            emailjs.send("service_7d9mer6", "template_s98dt07", {
+                from_email: email,
+                username: username,
+                quantidade: robux,
+                preco: (robux * 0.0279).toFixed(2)
+            }).then(function(response) {
+                alert('E-mail enviado com sucesso!');
+            }, function(error) {
+                alert('Falha ao enviar o e-mail: ' + JSON.stringify(error));
+            });
+        }
+
+        function copiarChavePix() {
+            let chavePix = document.getElementById('pixKey').innerText;
+            navigator.clipboard.writeText(chavePix).then(function() {
+                alert('Chave PIX copiada com sucesso!');
+            }, function() {
+                alert('Erro ao copiar a chave PIX.');
+            });
+        }
+    </script>
+</body>
+</html>
